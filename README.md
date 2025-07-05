@@ -1,116 +1,150 @@
-# ![Logo](https://raw.githubusercontent.com/jackssrt/robloxnotif/master/icons/png/robloxnotif.png)[robloxnotif](https://www.github.com/jackssrt/robloxnotif)
+# ![Logo](https://raw.githubusercontent.com/jackssrt/robloxnotif/master/icons/png/robloxnotif.png) [robloxnotif-tables](https://github.com/Zeustika/robloxnotif-tables)
 
-[![GitHub](https://img.shields.io/github/license/jackssrt/robloxnotif)](https://github.com/jackssrt/robloxnotif/blob/master/LICENSE) [![GitHub repo size](https://img.shields.io/github/repo-size/jackssrt/robloxnotif)](https://github.com/jackssrt/robloxnotif) [![GitHub top language](https://img.shields.io/github/languages/top/jackssrt/robloxnotif)](https://github.com/jackssrt/robloxnotif)
-[![GitHub Repo stars](https://img.shields.io/github/stars/jackssrt/robloxnotif?style=social)](https://github.com/jackssrt/robloxnotif/stargazers) [![Discord Server](https://img.shields.io/discord/877936145378471987)](https://discord.gg/6EzzURCEkB)\
-robloxnotif is an open source Roblox friend notifier made in python.
+[![GitHub](https://img.shields.io/github/license/Zeustika/robloxnotif-tables)](https://github.com/Zeustika/robloxnotif-tables/blob/main/LICENSE)
+[![GitHub repo size](https://img.shields.io/github/repo-size/Zeustika/robloxnotif-tables)](https://github.com/Zeustika/robloxnotif-tables)
+[![GitHub top language](https://img.shields.io/github/languages/top/Zeustika/robloxnotif-tables)](https://github.com/Zeustika/robloxnotif-tables)
+[![GitHub Repo stars](https://img.shields.io/github/stars/Zeustika/robloxnotif-tables?style=social)](https://github.com/Zeustika/robloxnotif-tables/stargazers)
 
-# Supported Operating Systems
+> **robloxnotif-tables** is a modified fork of [`jackssrt/robloxnotif`](https://github.com/jackssrt/robloxnotif) with rich-table-based UI and local last-online tracking.
+
+---
+
+## 📦 Supported Operating Systems
 
 | OS            | Support | Tested             | Notifier                                                                                             |
-| ------------- | ------- | ------------------ | ---------------------------------------------------------------------------------------------------- |
+|---------------|---------|--------------------|------------------------------------------------------------------------------------------------------|
 | Windows 10    | ✅      | ✅                 | [win10toast-withsound](https://github.com/Tazmondo/Windows-10-Toast-Notifications-with-sound-option) |
-| Other Windows | ❓      | ❌                 | [win10toast-withsound](https://github.com/Tazmondo/Windows-10-Toast-Notifications-with-sound-option) |
-| Linux         | ✅      | ✅ (Linux mint 20) | [notify.py](https://pypi.org/project/notify-py/)                                                     |
+| Other Windows | ❓      | ❌                 | Same as above                                                                                        |
+| Linux         | ✅      | ✅ (Linux Mint 20) | [notify.py](https://pypi.org/project/notify-py/)                                                     |
 | MacOS         | ❓      | ❌                 | [notify.py](https://pypi.org/project/notify-py/)                                                     |
 
-Windows 10 and Linux are both automatically tested here on github.
+---
 
-# Features
+## ✨ Features
 
-- Prefix nickname with `!` or `[!]` for a different sound
-- Select specific people to get notifications for
-- Optional logged out mode
+- 💬 Desktop notifications (with sound)
+- 🧠 Automatically saves `lastOnline` time locally (`last_online.json`)
+- 🔁 Loads local lastOnline history on startup
+- 📊 Clean UI using `rich.table` (terminal-based)
+- 🔔 Prefix `!` or `[!]` in nicknames for custom sounds
+- 🔒 Optional .ROBLOSECURITY login mode
+- ✅ Works even without login (limited presence info)
 
-# How to use
+---
 
-Just run `main.py` with python in a terminal and you will get a desktop notification when someone:
+## 🚀 How to Use
 
-- ![Playing icon](https://raw.githubusercontent.com/jackssrt/robloxnotif/master/icons/png/playing.png) Joins a game
-- ![Online icon](https://raw.githubusercontent.com/jackssrt/robloxnotif/master/icons/png/online.png) Goes online
-- ![Offline icon](https://raw.githubusercontent.com/jackssrt/robloxnotif/master/icons/png/offline.png) Goes offline
-- ![In Studio icon](https://raw.githubusercontent.com/jackssrt/robloxnotif/master/icons/png/studio.png) Opens a game in studio
+### 1. Clone the repo
 
-# Setup
+```bash
+git clone https://github.com/Zeustika/robloxnotif-tables.git
+cd robloxnotif-tables
+````
 
-If you need help setting up robloxnotif, feel free to [join the discord server!](https://discord.gg/6EzzURCEkB)
+### 2. Install dependencies
 
-1. Download and install the latest version of [Python 3](https://www.python.org/downloads/).
-1. Download the code from GitHub.
-1. Install the dependencies using pip in a command prompt or terminal:
-`python3 -m pip install -r requirements.txt`
-1. Create a file named `config.jsonc` in the folder.
-1. Paste this into the file you just created:
+```bash
+python -m pip install -r requirements.txt
+```
 
-```jsonc
+---
+
+## 🛠 Setup `config.json`
+
+1. Create a file named `config.json` inside the folder
+2. Paste and modify this:
+
+```json
 {
-	"usernames": {
-		//Hi i'm a comment! You can use me for organizing in here.
-		"PERSON 1'S USERID": "PERSON 1'S NICKNAME",
-		"PERSON 2'S USERID": "PERSON 2'S NICKNAME",
-		"PERSON 3'S USERID": "PERSON 3'S NICKNAME"
-	}
+  "usernames": {
+    "12345678": "!iyus_089",
+    "87654321": "[!]temanmu"
+  },
+  "loggedIn": true,
+  "cookie": ".ROBLOSECURITY=YOUR_COOKIE_HERE"
 }
 ```
 
-(You can add more than 3 people)\
-(This is a JSONC file, so it can have comments)
+* You can omit `"cookie"` or set `"loggedIn": false` if you're running in guest mode.
+* The keys (`"12345678"`) are Roblox **User IDs**.
+* Prefix nickname with `!` or `[!]` for sound customization.
 
-6. Replace everything that's UPPERCASE with its value\
-example:
+---
 
-```jsonc
+## ✅ Running the App
+
+```bash
+python main.py
+```
+
+* You'll see a **real-time status table** rendered in terminal.
+* Offline users will show their **last online time** from local storage.
+
+---
+
+## 💾 Local Last Online Tracking
+
+* Stored in `last_online.json` next to `main.py`
+* Automatically updated when user goes offline
+* Persisted across restarts
+
+Example:
+
+```json
 {
-	"usernames": {
-		// Roblox admins
-		"1": "!ROBLOX",
-		"156": "real builderman",
-		// Non roblox admins
-		"261": "[!]cool dude"
-	}
+  "12345678": "2025-07-05 19:12:00",
+  "87654321": "2025-07-05 18:55:10"
 }
 ```
 
-7. Run `main.py` with python in a terminal for the first time\
-with `py main.py` or `python3 main.py` if py doesnt work
+---
 
-✅ You have now completed basic setup!
+## 🔐 \[Optional] Setup `roblosecurity.jsonc`
 
-## [Optional] Login Setup
+Only needed if you want **more accurate presence info** like in-game universe ID.
 
-⚠ This section handles your .ROBLOSECURITY (Basically your password)\
-Skip this section if you don't need to know _what_ game your friend is playing or making. ⚠
-
-1. Create a new file and name it `roblosecurity.jsonc`
-2. Paste this into it:
+1. Create a new file named `roblosecurity.jsonc`
+2. Paste:
 
 ```jsonc
 {
-	// Do not leak your .ROBLOSECURITY!
-	"roblosecurity": "YOUR ROBLOSECURITY"
-	// Any one who has your roblosecurity can login as you
-	// and steal everything you have on roblox!
+  "roblosecurity": "YOUR .ROBLOSECURITY TOKEN HERE"
 }
 ```
 
-(This is a JSONC file, so it can have comments)
+⚠️ Do NOT share this file. Treat it like a password.
 
-3. Get your .ROBLOSECURITY
-4. Replace `YOUR ROBLOSECURITY` with your roblosecurity that you got in Step 3
+---
 
-✅ You are now logged in!
+## 🪄 \[Optional] Auto Start on Windows
 
-## [Optional] [Windows-Only] Auto start
+1. Open Task Scheduler
+2. Create Basic Task
+3. Trigger: "When I log on"
+4. Action: "Start a program"
+5. Program: `powershell.exe`
+6. Arguments:
 
-1. Assuming you are on Windows 10, Open task scheduler
-2. From the sidebar to the right select `Create Basic Task`
-3. Name it anything you want
-4. Set it's trigger to `When I log on`
-5. Set it's action to `Start a program`
-6. Set the program to be `powershell.exe`
-7. Set `Add arguments` to be `py PATH TO MAIN`
-8. Replace `PATH TO MAIN` with the path to `main.py` _including_ the file extension.
-9. Set `Start in` to be the path to the robloxnotif folder
+```powershell
+py "D:\Path\to\robloxnotif-tables\main.py"
+```
 
-✅ robloxnotif will now automatically start in a PowerShell window when you log on to Windows!
+7. Start in: folder path (without quotes)
 
-✅ You have now fully setup robloxnotif!
+---
+
+## 🙌 Credit
+
+* Original project by [`@jackssrt`](https://github.com/jackssrt/robloxnotif)
+* Modified by [`@Zeustika`](https://github.com/Zeustika)
+* UI & local time tracking added by community forks
+
+---
+
+## 🔗 Discord Support
+
+Join the original [robloxnotif Discord](https://discord.gg/6EzzURCEkB) if you need general setup help!
+
+---
+
+✅ **Enjoy! Now you can track your Roblox friends in a more readable, persistent, and modern way.**
