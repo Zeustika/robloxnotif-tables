@@ -3,3 +3,4 @@ win10toast-withsound;platform_system=="Windows"
 notify-py;platform_system=="Linux" or platform_system=="Darwin"
 colorama
 playsound==1.2.2;platform_system=="Windows"
+rich
