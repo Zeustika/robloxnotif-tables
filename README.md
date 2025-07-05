@@ -57,7 +57,7 @@ python -m pip install -r requirements.txt
 ```json
 {
   "usernames": {
-    "12345678": "!iyus_089",
+    "12345678": "!temanmu",
     "87654321": "[!]temanmu"
   },
   "loggedIn": true,
