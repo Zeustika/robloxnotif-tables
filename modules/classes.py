@@ -1,27 +1,28 @@
-import dataclasses
-from typing import Dict
+from dataclasses import dataclass
+from typing import Dict, Optional
 
 
-@dataclasses.dataclass(eq=True)
+@dataclass(eq=True)
 class Presence:
+    userId: int
     userPresenceType: int
     lastLocation: str
-    placeId: int
-    rootPlaceId: int
-    gameId: str
-    universeId: int
-    userId: int
-    lastOnline: str = dataclasses.field(compare=False)
+    placeId: Optional[int]
+    rootPlaceId: Optional[int]
+    gameId: Optional[int]
+    universeId: Optional[int]
+    userPresenceTypeDescription: str = ""
+    lastOnline: Optional[str] = None
 
 
-@dataclasses.dataclass
+@dataclass
 class ApiError:
     code: int
     message: str
     userFacingMessage: str
 
 
-@dataclasses.dataclass
+@dataclass
 class Config:
     usernames: Dict[str, str]
     loggedIn: bool
