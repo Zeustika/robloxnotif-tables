@@ -32,55 +32,82 @@
 
 ---
 
-## 🚀 How to Use
 
-### 1. Clone the repo
+## 🛠️ Setup
 
-```bash
-git clone https://github.com/Zeustika/robloxnotif-tables.git
-cd robloxnotif-tables
-````
+If you need help setting up **robloxnotif-tables**, feel free to [join the Discord server!](https://discord.gg/6EzzURCEkB)
 
-### 2. Install dependencies
+### ✅ Step-by-Step
 
-```bash
-python -m pip install -r requirements.txt
-```
+1. **Download and install [Python 3](https://www.python.org/downloads/)**
+   Make sure Python is added to your system PATH.
+
+2. **Clone or download the repository**
+
+   ```bash
+   git clone https://github.com/Zeustika/robloxnotif-tables.git
+   cd robloxnotif-tables
+   ```
+
+3. **Install the dependencies**
+
+   ```bash
+   python -m pip install -r requirements.txt
+   ```
+
+4. **Create a configuration file**
+   Make a file named `config.json` in the same folder as `main.py`. Paste this:
+
+   ```jsonc
+   {
+     "usernames": {
+       // Hi! I'm a comment. You can use me to organize users.
+       "PERSON_1_USERID": "PERSON 1 NICKNAME",
+       "PERSON_2_USERID": "PERSON 2 NICKNAME",
+       "PERSON_3_USERID": "[!]Important Person"
+     },
+     "loggedIn": true,
+     "cookie": ".ROBLOSECURITY=YOUR_COOKIE_HERE"
+   }
+   ```
+
+   * You can add more than 3 people.
+   * You can comment lines because this file supports JSONC format.
+   * If you are not using login, set `"loggedIn": false`.
+
+5. **Customize the values**
+   Replace the placeholder text with real values:
+
+   ```json
+   {
+     "usernames": {
+       // Roblox Admins
+       "1": "!ROBLOX",
+       "156": "real builderman",
+       // Friends
+       "261": "[!]cool dude"
+     },
+     "loggedIn": true,
+     "cookie": ".ROBLOSECURITY=_|WARNING:-DoNotShareThis"
+   }
+   ```
+
+6. **Run the script**
+
+   ```bash
+   python main.py
+   ```
+
+   or
+
+   ```bash
+   py main.py
+   ```
+
+   depending on your system configuration.
 
 ---
 
-## 🛠 Setup `config.json`
-
-1. Create a file named `config.json` inside the folder
-2. Paste and modify this:
-
-```json
-{
-  "usernames": {
-    "12345678": "!temanmu",
-    "87654321": "[!]temanmu"
-  },
-  "loggedIn": true,
-  "cookie": ".ROBLOSECURITY=YOUR_COOKIE_HERE"
-}
-```
-
-* You can omit `"cookie"` or set `"loggedIn": false` if you're running in guest mode.
-* The keys (`"12345678"`) are Roblox **User IDs**.
-* Prefix nickname with `!` or `[!]` for sound customization.
-
----
-
-## ✅ Running the App
-
-```bash
-python main.py
-```
-
-* You'll see a **real-time status table** rendered in terminal.
-* Offline users will show their **last online time** from local storage.
-
----
 
 ## 💾 Local Last Online Tracking
 
